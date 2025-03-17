@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: oklch(0.63 0.21 245);
+  --color-background: oklch(0.95 0 0);
+  --color-card: oklch(1 0 0);
+  --color-text: oklch(0.2 0 0);
+  --color-accent: oklch(0.85 0.25 90);
+}
+
+/* Dark Mode (Outside @theme) */
+.dark {
+  --color-primary: oklch(0.75 0.22 245);
+  --color-background: oklch(0.15 0 0);
+  --color-card: oklch(0.2 0 0);
+  --color-text: oklch(1 0 0);
+  --color-accent: oklch(0.85 0.25 60);
+}
+
+body {
+  @apply bg-no-repeat z-10 min-h-screen max-h-full;
+  background: url("./images/background.jpg") center;
+  background-size: cover
+}
+.slider button {
+  @apply mx-6 z-10;
+}
+
+.slider button::before {
+  @apply text-text;
+}
