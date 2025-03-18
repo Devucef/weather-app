@@ -88,6 +88,10 @@ const PositionButton = () => {
       );
     }
   };
+
+  useEffect(()=>{
+    FetchCurrentLocation()
+  },[])
   return (
     <button
       data-tooltip-id="my-tooltip"
