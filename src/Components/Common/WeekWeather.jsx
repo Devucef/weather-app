@@ -74,7 +74,6 @@ const WeekWeather = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
     slidesToShow: 7,
     slidesToScroll: 1,
     speed: 500,

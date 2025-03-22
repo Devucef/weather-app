@@ -2,15 +2,14 @@
   "name": "weather-app",
   "private": false,
   "version": "1.0.0",
-  "homepage": "https://devucef.github.io/weather-app",
+"homepage": "https://weather-app-nu-one-24.vercel.app",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.0",
