@@ -5,7 +5,7 @@ import CityInfo from "../Common/CityInfo";
 
 const LeftSide = () => {
   return (
-    <div className="col-span-full lg:col-span-2 bg-background  duration-300 py-4 flex flex-col items-center justify-between">
+    <div className="col-span-full lg:col-span-2 bg-background py-4 flex flex-col items-center justify-between">
       <Search />
       <WeatherIcon />
       <CityInfo />

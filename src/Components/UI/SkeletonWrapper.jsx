@@ -19,7 +19,7 @@ const SkeletonWrapper = ({
     return (
           <Skeleton
             borderRadius={borderRadius}
-            className={`${className} duration-200`}
+            className={`${className}`}
             enableAnimation
             count={count}
             baseColor={color1}

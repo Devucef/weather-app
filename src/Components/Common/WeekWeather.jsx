@@ -108,7 +108,7 @@ const WeekWeather = () => {
 
   return (
     <div className="flex flex-col items-start gap-y-4 container">
-      <h1 className="text-xl font-bold tracking-widest text-text duration-300">
+      <h1 className="text-xl font-bold tracking-widest text-text">
         Week
       </h1>
       <div className="w-full slider-container">
@@ -141,14 +141,14 @@ const WeekWeatherCard = ({ date, tempmax, tempmin, weatherIcon }) => {
 
   return (
     <>
-      <div className="min-w-28 mx-2 aspect-[1/1.5] duration-300 bg-card rounded-xl py-2 shadow flex flex-col items-center justify-between">
+      <div className="min-w-28 mx-2 aspect-[1/1.5] bg-card rounded-xl py-2 shadow flex flex-col items-center justify-between">
         <SkeletonWrapper
           className={"min-w-20 h-5 -translate-y-1 invert dark:invert-0"}
           borderRadius={12}
           color1={"black"}
           color2={"gray"}
         >
-          <h1 className="font-medium text-text duration-300">{Day}</h1>
+          <h1 className="font-medium text-text">{Day}</h1>
         </SkeletonWrapper>
         <SkeletonWrapper
           className={"min-w-20 h-20 -translate-y-1 invert dark:invert-0"}
