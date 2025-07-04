@@ -1,11 +1,9 @@
-import React from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useSelector } from "react-redux";
 
 const SkeletonWrapper = ({
-  condition,
-  children,
+  children, 
   className,
   count,
   color2,
@@ -15,6 +13,7 @@ const SkeletonWrapper = ({
   borderRadius,
 }) => {
   const {loading}= useSelector(({loading})=> loading);
+  
   if (loading) {
     return (
           <Skeleton

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { useSelector } from "react-redux";
 import SkeletonWrapper from "../UI/SkeletonWrapper";
 import CountUp from "react-countup";
+import weatherIconMap, { defaultIcon } from "../../Config/weatherIconMap";
 
 const CityInfo = () => {
   const [currentTime, setCurrentTime] = useState(null);
@@ -11,9 +12,11 @@ const CityInfo = () => {
   const [imageSource, setImageSource] = useState(null);
   const weather = useSelector(({ weather }) => weather);
   const { unit } = useSelector(({ unit }) => unit);
-  const [unity, setUnity] = useState("");
-
   const timezone = weather?.timezone;
+    const icon = weather?.weather?.map((dt) => dt.icon);
+  const iconSrc = weatherIconMap[icon] || defaultIcon;
+  
+
 
   useEffect(() => {
     const getLocalTimeFromOffset = (utcOffsetSeconds) => {
@@ -61,15 +64,15 @@ const CityInfo = () => {
         color1={"black"}
         color2={"gray"}
         count={1}
-        condition={!weather?.sys}
       >
         <div className="w-full flex items-center justify-between">
           <h2 className="font-semibold capitalize flex items-center text-lg tracking-wider">
-            {weather?.name} , {weather?.sys?.country}
+            <span className="line-clamp-1">{weather?.name} ,</span>
+            <span>{weather?.sys?.country}</span> 
             <i className="ri-map-pin-line ml-2 font-normal"></i>
           </h2>
           <img
-            src={`https://flagcdn.com/w40/${weather?.sys?.country.toLowerCase()}.png`}
+            src={`https://flagcdn.com/w40/${weather?.sys?.country?.toLowerCase()}.png`}
             alt=""
           />
         </div>
@@ -82,7 +85,6 @@ const CityInfo = () => {
         color1={"black"}
         color2={"gray"}
         count={2}
-        condition={!weather?.sys}
       >
         <h1 className="text-4xl">
           <CountUp
@@ -102,14 +104,11 @@ const CityInfo = () => {
           borderRadius={5}
           color1={"black"}
           color2={"gray"}
-          condition={!weather?.sys}
         >
           <div className="flex items-center gap-x-2 pb-10">
             <img
-              className="w-5 drop-shadow-[-2px_3px_0]"
-              src={`https://openweathermap.org/img/wn/${weather?.weather?.map(
-                (dt) => dt.icon
-              )}@2x.png`}
+              className="w-5 h-5 object-contain"
+              src={iconSrc}
               alt=""
             />
             <h1 className="font-medium capitalize">
@@ -124,7 +123,6 @@ const CityInfo = () => {
         color1={"black"}
         color2={"gray"}
         count={1}
-        condition={!weather?.name}
       >
         <motion.div
           initial={{ opacity: 0 }}

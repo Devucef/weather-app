@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import sunny from "../Icons/sunny.svg";
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SkeletonWrapper from "../UI/SkeletonWrapper";
 import { useSelector } from "react-redux";
+import weatherIconMap from "../../Config/weatherIconMap";
 
 const WeekWeather = () => {
   const weekInfo = useSelector(({ weekInfo }) => weekInfo);
@@ -12,8 +12,6 @@ const WeekWeather = () => {
   const { loading } = useSelector(({ loading }) => loading);
   const { unit } = useSelector(({ unit }) => unit);
   const [unity, setUnity] = useState("");
-
-
 
   const { lat, lon } = weekInfo;
 
@@ -37,8 +35,6 @@ const WeekWeather = () => {
     99: "11d", // Severe thunderstorm
   };
 
-
-
   const GetWeatherData = () => {
     fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,weathercode&temperature_unit=${unity}&timezone=auto&forecast_days=10`
@@ -57,7 +53,6 @@ const WeekWeather = () => {
           };
         });
         setDailyData(mappedData);
-        
       })
       .catch((error) => console.error("Error fetching options:", error));
   };
@@ -65,7 +60,7 @@ const WeekWeather = () => {
   useEffect(() => {
     setUnity(unit === "c" ? "celsius" : "fahrenheit");
   }, [unit]);
-  
+
   useEffect(() => {
     if (!lat || !lon || !unity) return;
     GetWeatherData();
@@ -108,9 +103,7 @@ const WeekWeather = () => {
 
   return (
     <div className="flex flex-col items-start gap-y-4 container">
-      <h1 className="text-xl font-bold tracking-widest text-text">
-        Week
-      </h1>
+      <h1 className="text-xl font-bold tracking-widest text-text">Week</h1>
       <div className="w-full slider-container">
         <Slider {...settings} className="slider">
           {dailyData && !loading
@@ -137,18 +130,27 @@ const WeekWeather = () => {
 };
 
 const WeekWeatherCard = ({ date, tempmax, tempmin, weatherIcon }) => {
+  const [loaded, setLoaded] = useState(false);
   const Day = new Date(date).toLocaleDateString("en-US", { weekday: "long" });
+  const Day_Month = new Date(date).toLocaleDateString("fr-FR", {
+    day: "2-digit",
+    month: "2-digit",
+  });
+  const iconSrc = weatherIconMap[weatherIcon]; // Fallback to sunny icon if not found
 
   return (
     <>
-      <div className="min-w-28 mx-2 aspect-[1/1.5] bg-card rounded-xl py-2 shadow flex flex-col items-center justify-between">
+      <div className="min-w-28 mx-1 aspect-[1/1.5] bg-card rounded-xl py-2 shadow flex flex-col items-center justify-between">
         <SkeletonWrapper
           className={"min-w-20 h-5 -translate-y-1 invert dark:invert-0"}
           borderRadius={12}
           color1={"black"}
           color2={"gray"}
         >
-          <h1 className="font-medium text-text">{Day}</h1>
+          <div className="w-full flex flex-col items-center">
+            <h1 className="font-medium text-xs text-text">{Day_Month}</h1>
+            <h1 className="font-medium text-text">{Day}</h1>
+          </div>
         </SkeletonWrapper>
         <SkeletonWrapper
           className={"min-w-20 h-20 -translate-y-1 invert dark:invert-0"}
@@ -157,9 +159,13 @@ const WeekWeatherCard = ({ date, tempmax, tempmin, weatherIcon }) => {
           color2={"gray"}
         >
           <img
-            src={`http://openweathermap.org/img/wn/${weatherIcon}.png`}
-            className="aspect-square w-22 drop-shadow-[1px_3px_0]"
-            alt=""
+            src={iconSrc}
+            onLoad={() => setLoaded(true)}
+            onError={() => setLoaded(false)}
+            className={`aspect-square w-16 object-contain drop-shadow-[1px_3px_0] transition-opacity duration-300 ${
+              loaded ? "opacity-100" : "opacity-0"
+            }`}
+            alt="Weather icon"
           />
         </SkeletonWrapper>
         <SkeletonWrapper

@@ -1,9 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ThemeContext from "../../Context/ThemeContext";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleUnit } from "../../App/Features/Slices/UnitSlice";
 import { Tooltip } from "react-tooltip";
 import { setCoords } from "../../App/Features/Slices/WeekInfoSlice";
+import { getCurrentPosition } from "../../Hooks/useCurrentPostion";
+import { openModal } from "../../App/Features/Slices/ModalSlice";
 
 const Settings = () => {
   return (
@@ -11,11 +13,7 @@ const Settings = () => {
       <PositionButton />
       <UnitButton />
       <ThemeButton />
-      <Tooltip
-        variant=""
-        delayShow={500}
-        id="my-tooltip"
-      />
+      <Tooltip variant="" delayShow={500} id="my-tooltip" />
     </div>
   );
 };
@@ -62,43 +60,36 @@ const UnitButton = () => {
 const PositionButton = () => {
   const dispatch = useDispatch();
 
-  const FetchCurrentLocation = () => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          dispatch(setCoords({lat: latitude, lon: longitude}));
-        },
-        (error) => {
-          console.error("geolocation error", error);
-          switch (error.code) {
-            case 1:
-              alert("Permission denied. Please allow location access.");
-              break;
-            case 2:
-              alert("Location unavailable. Try again later or check your connection.");
-              break;
-            case 3:
-              alert("Location request timed out. Please try again.");
-              break;
-            default:
-              alert("An unknown error occurred. Try again.");
-          }
-        }
+  const getPosition = async () => {
+    try {
+      const location = await getCurrentPosition();
+      dispatch(
+        setCoords({
+          lat: location.latitude,
+          lon: location.longitude,
+        })
+      );
+    } catch (error) {
+      console.error("Could not fetch location:", error);
+      dispatch(
+        openModal({
+          modalContent: {
+            title: "Location Error",
+            message: "Could not fetch your current location. Please try again.",
+            type: "error",
+          },
+        })
       );
     }
   };
 
-  useEffect(()=>{
-    FetchCurrentLocation()
-  },[])
   return (
     <button
       data-tooltip-id="my-tooltip"
       data-tooltip-class-name="bg-accent text-white font-semibold"
       data-tooltip-content="Use Your Current Position"
       className="size-8 cursor-pointer rounded-full bg-accent text-text shadow"
-      onClick={FetchCurrentLocation}
+      onClick={getPosition}
     >
       <i className="ri-map-pin-line" />
     </button>

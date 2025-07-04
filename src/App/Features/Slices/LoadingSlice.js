@@ -11,7 +11,6 @@ export const LoadingSlice = createSlice({
     reducers:{
         setLoading:(state,action)=>{
             state.loading=action.payload;
-            
         }
     }
 })

@@ -3,6 +3,7 @@ import WeatherSlice from "../Features/Slices/WeatherSlice";
 import LoadingSlice from "../Features/Slices/LoadingSlice";
 import WeekInfoSlice from "../Features/Slices/WeekInfoSlice";
 import UnitSlice from "../Features/Slices/UnitSlice"
+import modalSlice from "../Features/Slices/ModalSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     loading: LoadingSlice,
     weekInfo: WeekInfoSlice,
     unit : UnitSlice,
+    modal:modalSlice,
   },
 });
