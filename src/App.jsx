@@ -1,6 +1,6 @@
-import Container from "./components/blocs/Container";
 import LeftSide from "./components/blocs/LeftSide";
 import RightSide from "./components/blocs/RightSide";
+import Container from "./components/blocs/Container";
 import { ThemeProvider } from "./context/ThemeContext";
 import { Provider } from "react-redux";
 import { store } from "./app/store/Store";
