@@ -1,12 +1,12 @@
 import { Provider } from "react-redux";
 import { store } from "./app/store/Store";
 import { ThemeProvider } from "./context/ThemeContext";
-import Start from "./Components/Blocs/Start";
-import ModalContainer from "./Components/UI/Modal/ModalContainer";
-import Container from "./components/blocs/Container";
-import LeftSide from "./components/blocs/LeftSide";
-import RightSide from "./components/blocs/RightSide";
-import Footer from "./Components/Blocs/Footer";
+import Start from "@/components/blocs/Start";
+import ModalContainer from "@/components/UI/Modal/ModalContainer";
+import Container from "@/components/blocs/Container";
+import LeftSide from "@/components/blocs/LeftSide";
+import RightSide from "@/components/blocs/RightSide";
+import Footer from "@/components/Blocs/Footer";
 
 
 const App = () => {
