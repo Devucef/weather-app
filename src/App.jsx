@@ -1,20 +1,19 @@
-import Container from "./Components/Blocs/Container";
-import LeftSide from "./Components/Blocs/LeftSide";
-import RightSide from "./Components/Blocs/RightSide";
-import { ThemeProvider } from "./Context/ThemeContext";
+import Container from "./components/blocs/Container";
+import LeftSide from "./components/blocs/LeftSide";
+import RightSide from "./components/blocs/RightSide";
+import { ThemeProvider } from "./context/ThemeContext";
 import { Provider } from "react-redux";
-import { store } from "./App/Store/Store";
-import Footer from "./Components/Blocs/Footer";
-import Start from "./Components/Blocs/Start";
-import ModalContainer from "./Components/UI/Modal/ModalContainer";
+import { store } from "./app/store/Store";
+import Footer from "./components/blocs/Footer";
+import Start from "./components/blocs/Start";
+import ModalContainer from "./components/ui/modal/ModalContainer";
 
 const App = () => {
-
   return (
     <Provider store={store}>
       <ThemeProvider>
         <Start />
-        <ModalContainer/>
+        <ModalContainer />
         <Container>
           <LeftSide />
           <RightSide />
