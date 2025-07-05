@@ -1,20 +1,20 @@
 // src/config/weatherIconMap.js
 
-import sunny from "../Assets/Images/weatherIcons/Sunny.png";
-import cloudy from "../Assets/Images/weatherIcons/Cloudy.png";
-import partlyCloudy from "../Assets/Images/weatherIcons/PartlyCloudy.png";
-import lightRain from "../Assets/Images/weatherIcons/LightRain.png";
-import heavyRain from "../Assets/Images/weatherIcons/HeavyRain.png";
-import drizzle from "../Assets/Images/weatherIcons/Drizzle.png";
-import thunderstorm from "../Assets/Images/weatherIcons/Thunderstorm.png";
-import lightning from "../Assets/Images/weatherIcons/Lightning.png";
-import nightClear from "../Assets/Images/weatherIcons/NightMoonStar.png";
-import nightCloudy from "../Assets/Images/weatherIcons/CloudyNight.png";
-import nightStars from "../Assets/Images/weatherIcons/NightStars.png";
-import windy from "../Assets/Images/weatherIcons/Windy.png";
-import snow from "../Assets/Images/weatherIcons/Snow.png";
-import fog from "../Assets/Images/weatherIcons/Fog.png";
-import defaultIcon from "../Assets/Images/weatherIcons/Cloudy.png"; // fallback
+import sunny from "../assets/images/weatherIcons/Sunny.png";
+import cloudy from "../assets/images/weatherIcons/Cloudy.png";
+import partlyCloudy from "../assets/images/weatherIcons/PartlyCloudy.png";
+import lightRain from "../assets/images/weatherIcons/LightRain.png";
+import heavyRain from "../assets/images/weatherIcons/HeavyRain.png";
+import drizzle from "../assets/images/weatherIcons/Drizzle.png";
+import thunderstorm from "../assets/images/weatherIcons/Thunderstorm.png";
+import lightning from "../assets/images/weatherIcons/Lightning.png";
+import nightClear from "../assets/images/weatherIcons/NightMoonStar.png";
+import nightCloudy from "../assets/images/weatherIcons/CloudyNight.png";
+import nightStars from "../assets/images/weatherIcons/NightStars.png";
+import windy from "../assets/images/weatherIcons/Windy.png";
+import snow from "../assets/images/weatherIcons/Snow.png";
+import fog from "../assets/images/weatherIcons/Fog.png";
+import defaultIcon from "../assets/images/weatherIcons/Cloudy.png"; // fallback
 
 const weatherIconMap = {
   // ☀️ Clear

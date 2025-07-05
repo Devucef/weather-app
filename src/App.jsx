@@ -6,7 +6,7 @@ import ModalContainer from "@/components/ui/modal/ModalContainer";
 import Container from "@/components/blocs/Container";
 import LeftSide from "@/components/blocs/LeftSide";
 import RightSide from "@/components/blocs/RightSide";
-import Footer from "@/components/Blocs/Footer";
+import Footer from "@/components/blocs/Footer";
 
 
 const App = () => {

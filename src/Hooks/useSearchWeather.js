@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setCoords } from "../app/features/slices/WeekInfoSlice";
-import { setData, setTimeZone } from "../app/features/slices/WeatherSlice";
+import { setCoords } from "../app/features/slices/weekInfoSlice";
+import { setData, setTimeZone } from "../app/features/slices/weatherSlice";
 import { fetchCitySuggestions } from "../api/geoApi";
 import { fetchWeatherByCoords } from "../api/weatherApi";
-import { setLoading } from "../app/features/slices/LoadingSlice";
+import { setLoading } from "../app/features/slices/loadingSlice";
 
 export const useSearchWeather = () => {
   const dispatch = useDispatch();

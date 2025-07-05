@@ -2,9 +2,9 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { getCurrentPosition } from "../../hooks/useCurrentPostion";
 import { useDispatch } from "react-redux";
-import { openModal } from "../../app/features/slices/ModalSlice";
+import { openModal } from "../../app/features/slices/modalSlice";
 import Search from "../common/Search";
-import { setCoords } from "../../app/features/slices/WeekInfoSlice";
+import { setCoords } from "../../app/features/slices/weekInfoSlice";
 
 export default function Start() {
   const [isStart, setIsStart] = useState(true);
@@ -140,8 +140,8 @@ export default function Start() {
 const DevFooter = () => {
   return (
     <motion.footer
-      initial={{ opacity: 0, x: 200 }}
-      animate={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, }}
+      animate={{ opacity: 1, }}
       transition={{ duration: 0.4 }}
       className="absolute self-start pt-2 md:bottom-4 right-4 flex items-center text-xs text-text/50"
     >
