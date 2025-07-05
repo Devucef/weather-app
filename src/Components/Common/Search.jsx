@@ -43,7 +43,7 @@ const Search = ({ onSuccess }) => {
         onChange={(selected) => {
           if (!selected) return;
           setSelected(selected);
-          getWeather(selected, unity);
+          getWeather(selected);
           onSuccess();
         }}
         classNames={{

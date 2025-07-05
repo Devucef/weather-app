@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { closeModal } from "../../../app/features/slices/ModalSlice";
+import { closeModal } from "../../../app/features/slices/modalSlice";
 import { motion } from "motion/react";
 
 export default function Modal() {

@@ -1,4 +1,3 @@
-import React from "react";
 import PressureCard from "./PressureCard";
 import WindStatusCard from "./WindStatusCard";
 import SunriseSunsetCard from "./SunriseSunsetCard";

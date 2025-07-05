@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import ThemeContext from "../../context/ThemeContext";
+import ThemeContext from "../../context/themeContext";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleUnit } from "../../app/features/slices/UnitSlice";
+import { toggleUnit } from "../../app/features/slices/unitSlice";
 import { Tooltip } from "react-tooltip";
-import { setCoords } from "../../app/features/slices/WeekInfoSlice";
+import { setCoords } from "../../app/features/slices/weekInfoSlice";
 import { getCurrentPosition } from "../../hooks/useCurrentPostion";
-import { openModal } from "../../app/features/slices/ModalSlice";
+import { openModal } from "../../app/features/slices/modalSlice";
 
 const Settings = () => {
   return (

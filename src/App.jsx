@@ -1,8 +1,8 @@
 import { Provider } from "react-redux";
 import { store } from "@/app/store/store";
-import { ThemeProvider } from "@/context/ThemeContext";
+import { ThemeProvider } from "@/context/themeContext";
 import Start from "@/components/blocs/Start";
-import ModalContainer from "@/components/UI/Modal/ModalContainer";
+import ModalContainer from "@/components/ui/modal/ModalContainer";
 import Container from "@/components/blocs/Container";
 import LeftSide from "@/components/blocs/LeftSide";
 import RightSide from "@/components/blocs/RightSide";

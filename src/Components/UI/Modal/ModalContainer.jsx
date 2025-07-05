@@ -1,4 +1,4 @@
-import Modal from "./Modal";
+import Modal from "./modal";
 import { AnimatePresence, motion } from "motion/react";
 import { useSelector } from "react-redux";
 
