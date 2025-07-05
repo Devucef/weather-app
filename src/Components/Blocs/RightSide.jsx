@@ -1,4 +1,3 @@
-import React from 'react';
 import WeekWeather from '../common/WeekWeather';
 import Highlights from '../common/Highlights';
 import Settings from '../common/Settings';

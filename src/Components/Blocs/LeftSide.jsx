@@ -1,4 +1,3 @@
-import React from "react";
 import Search from "../common/Search";
 import WeatherIcon from "../common/WeatherIcon";
 import CityInfo from "../common/CityInfo";
