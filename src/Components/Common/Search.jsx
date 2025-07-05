@@ -1,32 +1,36 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Select from "react-select";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useSearchWeather } from "../../hooks/useSearchWeather";
+import { setCoords } from "../../app/features/slices/weekInfoSlice";
 
 const Search = ({ onSuccess }) => {
   const [options, setOptions] = useState([]);
   const [inputLoad, setInputLoad] = useState(false);
   const [selected, setSelected] = useState(null);
-
+  const dispatch = useDispatch();
   const { getSuggestions, getWeather, unit } = useSearchWeather();
   const infos = useSelector((state) => state.weekInfo);
 
-
   const units = unit === "c" ? "metric" : "imperial";
 
-  useEffect(() => {
-    if (selected) {
-      getWeather(selected, units);
-    }
-  }, [selected, units, getWeather]);
+  // 🔒 Secure memoized fetch to prevent unnecessary renders
+  const fetchWeather = useCallback(
+    (location) => {
+      if (!location) return;
+      getWeather(location, units);
+    },
+    [getWeather, units]
+  );
 
-  // Fetch weather when coordinates info changes (e.g., from another part of your app)
   useEffect(() => {
-    const { lat, lon } = infos;
-    if (lat && lon) {
-      getWeather(infos, units);
-    }
-  }, [infos, units, getWeather]);
+    if (selected) fetchWeather(selected);
+  }, [selected, fetchWeather]);
+
+  useEffect(() => {
+    const { lat, lon } = infos || {};
+    if (lat && lon) fetchWeather(infos);
+  }, [infos, fetchWeather]);
 
   return (
     <div className="relative w-[95%] rounded-xl">
@@ -34,17 +38,15 @@ const Search = ({ onSuccess }) => {
         options={options}
         placeholder="Enter Your City ..."
         onInputChange={(input) => {
-          if (input) {
-            getSuggestions(input, setOptions, setInputLoad);
-          }
+          if (input) getSuggestions(input, setOptions, setInputLoad);
           return input;
         }}
         isLoading={inputLoad}
-        onChange={(selected) => {
-          if (!selected) return;
-          setSelected(selected);
-          getWeather(selected);
-          onSuccess();
+        onChange={(selectedOption) => {
+          if (!selectedOption) return;
+          setSelected(selectedOption); // 🟢 triggers fetch via useEffect
+            dispatch(setCoords({ lat: selectedOption.lat, lon: selectedOption.lon })); // ✅ moved here
+          onSuccess?.(); // Optional chaining for safety
         }}
         classNames={{
           control: () =>

@@ -46,7 +46,6 @@ export const useSearchWeather = () => {
 
       dispatch(setData({ clouds, main, name, sys, visibility, weather, wind }));
       dispatch(setTimeZone(timezone));
-      dispatch(setCoords({ lat: selected.lat, lon: selected.lon }));
       dispatch(setLoading(false));
     } catch (error) {
       console.error("WeatherAPI error:", error);

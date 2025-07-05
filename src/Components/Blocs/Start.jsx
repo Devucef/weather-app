@@ -42,7 +42,7 @@ export default function Start() {
   const SelectCity = () => {
     return (
       <>
-        <div className="flex flex-col items-center justify-center h-full">
+        <div className="w-full flex flex-col items-center justify-center h-full">
           <div>
             <h1 className="text-2xl md:text-3xl text-center font-bold mb-6 relative text-text">
               Welcome to <span className="text-primary ">ClimoScope</span>
@@ -107,23 +107,23 @@ export default function Start() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 w-full h-screen justify-center flex items-center backdrop-blur-xl z-20"
+            className="absolute inset-0 w-full h-screen justify-center flex items-center backdrop-blur-xl z-20"
           >
             <motion.div
               initial={{
                 opacity: 0,
-                y: 50,
+                scale: 0.8,
               }}
               animate={{
                 opacity: 1,
-                y: 0,
+                scale: 1,
               }}
               exit={{
                 opacity: 0,
-                y: 50,
+                scale: 0.8,
               }}
               transition={{ duration: 0.4 }}
-              className="w-lg bg-background rounded-2xl shadow-xl md:aspect-video"
+              className="w-full md:w-lg bg-background rounded-2xl shadow-xl md:aspect-video"
             >
               <div className="flex w-full flex-col items-center justify-center h-full p-8">
                 <SelectCity />
