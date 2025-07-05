@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
 import { store } from "@/app/store/store";
-import { ThemeProvider } from "./context/ThemeContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 import Start from "@/components/blocs/Start";
 import ModalContainer from "@/components/UI/Modal/ModalContainer";
 import Container from "@/components/blocs/Container";
