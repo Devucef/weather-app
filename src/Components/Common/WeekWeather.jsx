@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import SkeletonWrapper from "../UI/SkeletonWrapper";
+import SkeletonWrapper from "../ui/SkeletonWrapper";
 import { useSelector } from "react-redux";
-import weatherIconMap from "../../Config/weatherIconMap";
+import weatherIconMap from "../../config/weatherIconMap";
 
 const WeekWeather = () => {
   const weekInfo = useSelector(({ weekInfo }) => weekInfo);

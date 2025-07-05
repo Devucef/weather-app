@@ -1,10 +1,10 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { getCurrentPosition } from "../../Hooks/useCurrentPostion";
+import { getCurrentPosition } from "../../hooks/useCurrentPostion";
 import { useDispatch } from "react-redux";
-import { openModal } from "../../App/Features/Slices/ModalSlice";
-import Search from "../Common/Search";
-import { setCoords } from "../../App/Features/Slices/WeekInfoSlice";
+import { openModal } from "../../app/features/slices/ModalSlice";
+import Search from "../common/Search";
+import { setCoords } from "../../app/features/slices/WeekInfoSlice";
 
 export default function Start() {
   const [isStart, setIsStart] = useState(true);

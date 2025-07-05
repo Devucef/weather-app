@@ -1,7 +1,7 @@
 import React from "react";
 import CountUp from "react-countup";
 import { useSelector } from "react-redux";
-import SkeletonWrapper from "../UI/SkeletonWrapper";
+import SkeletonWrapper from "../ui/SkeletonWrapper";
 
 const MaxTemperatureCard = () => {
   const weather = useSelector(({ weather }) => weather);

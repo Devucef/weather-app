@@ -1,7 +1,7 @@
 import React from 'react';
-import WeekWeather from '../Common/WeekWeather';
-import Highlights from '../Common/Highlights';
-import Settings from '../Common/Settings';
+import WeekWeather from '../common/WeekWeather';
+import Highlights from '../common/Highlights';
+import Settings from '../common/Settings';
 
 
 const RightSide = () => {

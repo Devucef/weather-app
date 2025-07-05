@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { useSelector } from "react-redux";
-import SkeletonWrapper from "../UI/SkeletonWrapper";
+import SkeletonWrapper from "../ui/SkeletonWrapper";
 import CountUp from "react-countup";
-import weatherIconMap, { defaultIcon } from "../../Config/weatherIconMap";
+import weatherIconMap, { defaultIcon } from "../../config/weatherIconMap";
 
 const CityInfo = () => {
   const [currentTime, setCurrentTime] = useState(null);

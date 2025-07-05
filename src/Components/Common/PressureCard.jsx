@@ -1,7 +1,7 @@
 import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
 import CountUp from "react-countup";
 import { useSelector } from "react-redux";
-import SkeletonWrapper from "../UI/SkeletonWrapper";
+import SkeletonWrapper from "../ui/SkeletonWrapper";
 
 const PressureCard = () => {
   const weather = useSelector(({ weather }) => weather);

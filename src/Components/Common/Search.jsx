@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Select from "react-select";
 import { useSelector } from "react-redux";
-import { useSearchWeather } from "../../Hooks/useSearchWeather";
+import { useSearchWeather } from "../../hooks/useSearchWeather";
 
 const Search = ({ onSuccess }) => {
   const [options, setOptions] = useState([]);

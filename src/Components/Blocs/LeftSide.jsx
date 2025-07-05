@@ -1,7 +1,7 @@
 import React from "react";
-import Search from "../Common/Search";
-import WeatherIcon from "../Common/WeatherIcon";
-import CityInfo from "../Common/CityInfo";
+import Search from "../common/Search";
+import WeatherIcon from "../common/WeatherIcon";
+import CityInfo from "../common/CityInfo";
 
 const LeftSide = () => {
   return (

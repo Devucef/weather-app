@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useSelector } from "react-redux";
-import SkeletonWrapper from "../UI/SkeletonWrapper";
-import weatherIconMap, { defaultIcon } from "../../Config/weatherIconMap";
+import SkeletonWrapper from "../ui/SkeletonWrapper";
+import weatherIconMap, { defaultIcon } from "../../config/weatherIconMap";
 import { useState } from "react";
 const WeatherIcon = () => {
   const weather = useSelector(({ weather }) => weather);

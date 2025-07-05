@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import SkeletonWrapper from "../UI/SkeletonWrapper";
+import SkeletonWrapper from "../ui/SkeletonWrapper";
 
 const SunriseSunsetCard = () => {
   const weather = useSelector(({ weather }) => weather);
